@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<DialogPane prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.211" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="inventory_application.ModifyPartController">
+    <content>
+        <BorderPane prefHeight="200.0" prefWidth="400.0">
+
+            <top>
+                <HBox spacing="30" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <padding>
+                        <Insets bottom="10" left="10" top="10" />
+                    </padding>
+                    <Label text="Modify Part" textFill="blue">
+                        <font>
+                            <Font name="Arial bold" size="14" />
+                        </font>
+                    </Label>
+                    <RadioButton fx:id="inHouseRB" onMouseClicked="#handleKeyReleased" style="-fx-: blue;" text="In-House" toggleGroup="$partTypeToggleGroup" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <toggleGroup>
+                            <ToggleGroup fx:id="partTypeToggleGroup" />
+                        </toggleGroup></RadioButton>
+                    <RadioButton fx:id="outHouseRB" onMouseClicked="#handleKeyReleased" text="Outsourced" toggleGroup="$partTypeToggleGroup" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                    <!--              <fx:define>-->
+                    <!--                    <ToggleGroup fx:id="partTypeToggleGroup" />-->
+                    <!--                </fx:define>-->
+                </HBox>
+            </top>
+
+            <center>
+                <GridPane hgap="10" vgap="15">
+                    <padding>
+                        <Insets bottom="10" left="30" right="30" top="10" />
+                    </padding>
+                    <Label text="ID" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <TextField fx:id="idField" disable="true" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="110.0" style="-fx-background-color: transparent;         -fx-border-style: solid; -fx-border-radius: 3;" text="Auto Gen-Disabled" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <font>
+                            <Font size="10.0" />
+                        </font></TextField>
+                    <Label text="Name" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <TextField fx:id="nameField" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="110.0" promptText="Part Name" GridPane.columnIndex="1" GridPane.rowIndex="1" onKeyReleased="#handleKeyReleased"/>
+                    <Label text="Inv" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <TextField fx:id="stockField" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="110.0" promptText="Inv" GridPane.columnIndex="1" GridPane.rowIndex="2" onKeyReleased="#handleKeyReleased"/>
+                    <Label text="Price/Cost" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <TextField fx:id="priceField" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="110.0" promptText="Pirce/Cost" GridPane.columnIndex="1" GridPane.rowIndex="3" onKeyReleased="#handleKeyReleased"/>
+
+                    <Label text="Max" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                    <HBox prefWidth="200" spacing="20" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <TextField fx:id="maxField" prefWidth="60" promptText="Max" onKeyReleased="#handleKeyReleased"/>
+                        <Label text="Min" />
+                        <TextField fx:id="minField" prefWidth="60" promptText="Min" onKeyReleased="#handleKeyReleased"/>
+                    </HBox>
+
+                    <Label fx:id="classSpecificLabel" prefHeight="17.0" prefWidth="120.0" text="Machine ID" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                    <TextField fx:id="classSpecificField" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="80.0" promptText="Mach ID" GridPane.columnIndex="1" GridPane.rowIndex="5" onKeyReleased="#handleKeyReleased"/>
+
+                </GridPane>
+            </center>
+            <bottom>
+                <HBox alignment="CENTER_RIGHT" spacing="15">
+                    <padding>
+                        <Insets right="10" top="5" />
+                    </padding>
+                    <Button fx:id="saveButton" prefWidth="60" text="Save" onMouseClicked="#processPart"/>
+                    <Button prefWidth="60" text="Cancel" fx:id="closeButton" cancelButton="true" onAction="#handleCloseButtonAction" />
+                </HBox>
+
+            </bottom>
+        </BorderPane>
+    </content>
+</DialogPane>
