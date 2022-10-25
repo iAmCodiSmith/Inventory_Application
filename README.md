@@ -5,6 +5,6 @@ Simple OOP Inventory Application
 ![alt text](https://github.com/iAmCodiSmith/Inventory_Application/blob/main/Inventory_Application/src/invReadMe.png)
 
 Includes search and sort,
-easily modifiable
+easily modifiable.
 
-Old School Project
+Old project for school, originally built for Netbeans.
